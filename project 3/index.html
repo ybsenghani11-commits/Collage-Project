@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. ROLE SELECTION -->
+    <div id="selection-screen" class="container">
+        <h1>Quiz Master</h1>
+        <p>Choose your role to continue</p>
+        <button class="primary-btn" onclick="openPanel('admin')">Admin Panel</button>
+        <button class="primary-btn" onclick="openPanel('student')">Student Panel</button>
+    </div>
+
+    <!-- 2. ADMIN PANEL -->
+    <div id="admin-panel" class="container hidden">
+        <h2>Admin Dashboard</h2>
+        <div class="form-card">
+            <input type="hidden" id="edit-index" value="-1">
+            <input type="text" id="q-text" placeholder="Question text">
+            <input type="text" id="opt-1" placeholder="Option 1">
+            <input type="text" id="opt-2" placeholder="Option 2">
+            <input type="text" id="opt-3" placeholder="Option 3">
+            <input type="text" id="opt-4" placeholder="Option 4">
+            <input type="text" id="correct-ans" placeholder="Correct Answer (must match one option)">
+            <button id="save-btn" class="primary-btn" onclick="handleSave()">Add Question</button>
+        </div>
+
+        <div id="admin-q-list" class="q-list"></div>
+
+        <button class="danger-btn" onclick="clearAll()">Clear All Questions</button>
+        <button class="secondary-btn" onclick="goHome()">Back to Home</button>
+    </div>
+
+    <!-- 3. STUDENT PANEL -->
+    <div id="student-panel" class="container hidden">
+        <h2>Student Quiz</h2>
+        <div id="quiz-box">
+            <h3 id="display-q"></h3>
+            <div id="display-opts"></div>
+            
+            <div class="nav-btns">
+                <button id="prev-btn" class="secondary-btn" onclick="changeQuestion(-1)">Previous</button>
+                <button id="next-btn" class="primary-btn" onclick="changeQuestion(1)">Next</button>
+                <button id="submit-btn" class="success-btn hidden" onclick="submitQuiz()">Submit Quiz</button>
+            </div>
+        </div>
+
+        <div id="result-box" class="hidden">
+            <h2 id="final-score"></h2>
+            <button class="primary-btn" onclick="openPanel('student')">Restart Quiz</button>
+        </div>
+        <button class="secondary-btn" onclick="goHome()">Exit to Home</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
