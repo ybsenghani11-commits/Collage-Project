@@ -40,7 +40,7 @@ function generatePassword() {
 
     // Update UI
     display.innerText = generatedPassword;
-    display.style.color = "#007bff";
+    display.style.color = "#3b054e";
     resultBox.style.borderStyle = "solid";
     resultBox.style.borderColor = "#ddd";
 }
